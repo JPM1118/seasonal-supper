@@ -1,0 +1,5 @@
+@import "./global/body.css";
+
+@import "./component/App.css";
+@import "./component/LandingPage.css";
+@import "./component/Title.css";

@@ -6,6 +6,7 @@
   "dependencies": {
     "marked": "^0.5.1",
     "react": "^16.5.2",
+    "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.5.2",
     "react-scripts": "2.0.5",
     "sanitize-html": "^1.19.1"

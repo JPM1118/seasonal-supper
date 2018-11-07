@@ -1,5 +1,9 @@
 @import "./global/body.css";
+@import "./global/flex-container.css";
 
 @import "./component/App.css";
 @import "./component/LandingPage.css";
 @import "./component/Title.css";
+@import "./component/Dropdown.css";
+@import "./component/Card.css";
+@import "./component/ProduceResults.css";

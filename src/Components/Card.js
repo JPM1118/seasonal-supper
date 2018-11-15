@@ -15,11 +15,6 @@ class Card extends Component {
         </div>
         <div className="card__description">
           <h2 className="card__description__title">Broccoli</h2>
-          <p className="card__description__paragraph">
-            President George H.W. Bush might be this country's most vociferous
-            broccoli critic, famously banning the vegetable from Air Force One
-            in 1990.
-          </p>
         </div>
         <div className="card__btn">
           <button>Recipies</button>

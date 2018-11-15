@@ -27,6 +27,7 @@ body {
   background: rgba(0, 0, 0, 0.5);
   position: absolute;
   margin-top: 0;
+  overflow: hidden;
 }
 
 .landing-page:after {
@@ -125,6 +126,5 @@ body {
 
 .produce-results {
   margin-top: 10px;
-  /* height: 70vh; */
-  /* overflow: auto; */
+  padding-bottom: 40px;
 }

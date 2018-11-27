@@ -17,7 +17,7 @@ class Card extends Component {
           <h2 className="card__description__title">Broccoli</h2>
         </div>
         <div className="card__btn">
-          <button>Recipies</button>
+          <button className="btn">Recipies</button>
         </div>
       </div>
     );

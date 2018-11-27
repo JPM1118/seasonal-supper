@@ -1,0 +1,25 @@
+$green: #80bd9e;
+.btn {
+  text-decoration: none;
+  text-transform: uppercase;
+  background: #80bd9e;
+  border: 1px solid white;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  transform: scale(1);
+
+  &:hover {
+    background-color: white;
+    border: $green 1px solid;
+    color: $green;
+  }
+  &:focus {
+    outline: none;
+  }
+  &:active {
+    transform: scale(1.2);
+  }
+}

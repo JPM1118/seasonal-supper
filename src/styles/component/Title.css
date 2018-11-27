@@ -1,13 +1,21 @@
 .title-block {
   &--title {
-    font-size: 3.5rem;
+    font-size: 2rem;
     font-weight: 900;
     margin-bottom: 20px;
     font-family: "Roboto Slab", serif;
+
+    @mixin atMedium {
+      font-size: 3.5rem;
+    }
   }
   &--subtitle {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 900;
     margin-top: 0;
+
+    @mixin atMedium {
+      font-size: 1.5rem;
+    }
   }
 }

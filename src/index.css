@@ -54,16 +54,30 @@ body {
   }
 
 .title-block--title {
-    font-size: 3.5rem;
+    font-size: 2rem;
     font-weight: 900;
     margin-bottom: 20px;
     font-family: "Roboto Slab", serif;
   }
 
+@media (min-width: 425px) {
+
+.title-block--title {
+      font-size: 3.5rem
+  }
+  }
+
 .title-block--subtitle {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 900;
     margin-top: 0;
+  }
+
+@media (min-width: 425px) {
+
+.title-block--subtitle {
+      font-size: 1.5rem
+  }
   }
 
 .dropdown {
@@ -72,7 +86,7 @@ body {
   background-color: white;
   width: 200px;
   text-align: center;
-  margin: 0 15px;
+  margin: 5px 15px;
   cursor: pointer;
   position: relative;
 }
@@ -114,7 +128,7 @@ body {
 .card {
   background-color: white;
   color: black;
-  max-width: 250px;
+  width: 250px;
   padding: 10px;
   margin: 15px;
   border-radius: 5px;

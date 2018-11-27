@@ -22,7 +22,7 @@ class Dropdown extends Component {
     this.setState({
       headerTitle: e
     });
-    this.props.onDropdownChange(true);
+    this.props.onDropdownChange(true, e);
   };
 
   render() {
@@ -37,7 +37,7 @@ class Dropdown extends Component {
             {listOpen ? (
               <img
                 src={arrowUp}
-                alt="arrow down icon"
+                alt="arrow up icon"
                 className="dropdown__icon"
               />
             ) : (

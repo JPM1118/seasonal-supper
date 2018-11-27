@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Title from "./Title";
-import locationState from "./../Test Objects/locationState";
-import monthState from "./../Test Objects/monthState";
+import locationState from "./../Test_Objects/locationState";
+import monthState from "./../Test_Objects/monthState";
 import Dropdown from "./Dropdown";
 import ProduceResults from "./ProduceResults";
 
@@ -10,14 +10,21 @@ class LandingPage extends Component {
     super();
     this.handleChange = this.handleChange.bind(this);
     this.state = {
-      location: locationState(),
-      month: monthState,
+      locations: locationState(),
+      currentLocation: "",
+      months: monthState,
+      currentMonth: monthState.getMonth(),
       dropdownSelected: false
     };
   }
-  handleChange(e) {
+  handleChange(selected, title) {
+    let array = this.state.months.months;
+    array.some(e => e.title === title)
+      ? this.setState({ currentMonth: title })
+      : this.setState({ currentLocation: title });
+
     this.setState({
-      dropdownSelected: e
+      dropdownSelected: selected
     });
   }
   render() {
@@ -28,16 +35,21 @@ class LandingPage extends Component {
           <div className="flex-container">
             <Dropdown
               title="Select Location"
-              list={this.state.location}
+              list={this.state.locations}
               onDropdownChange={this.handleChange}
             />
             <Dropdown
-              title={this.state.month.getMonth()}
-              list={this.state.month.months}
+              title={this.state.months.getMonth()}
+              list={this.state.months.months}
               onDropdownChange={this.handleChange}
             />
           </div>
-          {this.state.dropdownSelected && <ProduceResults />}
+          {this.state.dropdownSelected && (
+            <ProduceResults
+              state={this.state.currentLocation}
+              month={this.state.currentMonth}
+            />
+          )}
         </div>
       </div>
     );

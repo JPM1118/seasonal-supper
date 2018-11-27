@@ -1,6 +1,7 @@
 @import "./global/body.css";
 @import "./global/flex-container.css";
-@import "./global//btn.css";
+@import "./global/btn.css";
+@import "./global/mixins.css";
 
 @import "./component/App.css";
 @import "./component/LandingPage.css";

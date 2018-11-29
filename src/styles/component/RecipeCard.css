@@ -1,0 +1,65 @@
+.recipeCard {
+  padding-bottom: 80px;
+  padding-top: 40px;
+  width: 100%;
+  margin: 0px;
+  position: relative;
+  top: 0;
+  color: black;
+
+  h1,
+  &__img {
+    text-align: center;
+    margin-bottom: 15px;
+    img {
+      border-radius: 5%;
+    }
+  }
+  h1 {
+    font-family: "Roboto Slab", serif;
+    font-size: 3rem;
+    color: #80bd9e;
+  }
+  &__content {
+    max-width: 610px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &__col-left {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 489px;
+    text-align: left;
+    h2 {
+      text-align: center;
+    }
+    @media (min-width: 610px) {
+      h2 {
+        text-align: left;
+      }
+      margin-right: 25px;
+    }
+  }
+
+  &__col-right {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+  }
+
+  &__nutrients {
+    display: inline-block;
+    color: #80bd9e;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    transform: scale(1);
+    &:active {
+      transform: scale(1.2);
+    }
+  }
+  &__recipeBtn {
+    text-align: center;
+    margin: 10px auto;
+  }
+}

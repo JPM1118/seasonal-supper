@@ -42,7 +42,7 @@ class ProduceResults extends Component {
           return (
             <div
               {...props}
-              className="produce-results flex-container"
+              className="results flex-container"
               style={{
                 ...props.style
               }}
@@ -51,7 +51,13 @@ class ProduceResults extends Component {
         }}
       >
         {this.state.produce.map(produce => {
-          return <Card key={produce} produce={produce} />;
+          return (
+            <Card
+              key={produce}
+              produce={produce}
+              onIngredientSelection={this.props.onIngredientSelection}
+            />
+          );
         })}
       </Scrollbars>
     );

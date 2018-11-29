@@ -2,10 +2,12 @@
 @import "./global/flex-container.css";
 @import "./global/btn.css";
 @import "./global/mixins.css";
+@import "./global/results.css";
 
 @import "./component/App.css";
 @import "./component/LandingPage.css";
 @import "./component/Title.css";
 @import "./component/Dropdown.css";
 @import "./component/Card.css";
-@import "./component/ProduceResults.css";
+@import "./component/RecipeCard.css";
+@import "./component/Modal.css";

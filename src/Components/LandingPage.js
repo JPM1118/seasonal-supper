@@ -4,17 +4,21 @@ import locationState from "./../Test_Objects/locationState";
 import monthState from "./../Test_Objects/monthState";
 import Dropdown from "./Dropdown";
 import ProduceResults from "./ProduceResults";
+import RecipeResults from "./RecipeResults";
 
 class LandingPage extends Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
+    this.recipeResultToggle = this.recipeResultToggle.bind(this);
     this.state = {
       locations: locationState(),
       currentLocation: "",
       months: monthState,
       currentMonth: monthState.getMonth(),
-      dropdownSelected: false
+      ingredient: "",
+      dropdownSelected: false,
+      ingredientSelected: false
     };
   }
   handleChange(selected, title) {
@@ -24,8 +28,19 @@ class LandingPage extends Component {
       : this.setState({ currentLocation: title });
 
     this.setState({
-      dropdownSelected: selected
+      dropdownSelected: selected,
+      ingredient: "",
+      ingredientSelected: false
     });
+  }
+
+  recipeResultToggle(ingredient) {
+    console.log(ingredient);
+    this.setState(prevState => ({
+      // dropdownSelected: !prevState.dropdownSelected,
+      ingredientSelected: !prevState.ingredientSelected,
+      ingredient: ingredient
+    }));
   }
   render() {
     return (
@@ -44,11 +59,15 @@ class LandingPage extends Component {
               onDropdownChange={this.handleChange}
             />
           </div>
-          {this.state.dropdownSelected && (
+          {this.state.dropdownSelected && !this.state.ingredientSelected && (
             <ProduceResults
               state={this.state.currentLocation}
               month={this.state.currentMonth}
+              onIngredientSelection={this.recipeResultToggle}
             />
+          )}
+          {this.state.ingredientSelected && (
+            <RecipeResults ingredient={this.state.ingredient} />
           )}
         </div>
       </div>

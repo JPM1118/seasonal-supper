@@ -5,6 +5,8 @@ import monthState from "./../Test_Objects/monthState";
 import Dropdown from "./Dropdown";
 import ProduceResults from "./ProduceResults";
 import RecipeResults from "./RecipeResults";
+import { BrowserRouter as Router } from "react-router-dom";
+import Route from "react-router-dom/Route";
 
 class LandingPage extends Component {
   constructor() {
@@ -35,42 +37,63 @@ class LandingPage extends Component {
   }
 
   recipeResultToggle(ingredient) {
-    console.log(ingredient);
     this.setState(prevState => ({
-      // dropdownSelected: !prevState.dropdownSelected,
       ingredientSelected: !prevState.ingredientSelected,
       ingredient: ingredient
     }));
   }
   render() {
     return (
-      <div className="landing-page">
-        <div className="landing-page__content">
-          <Title />
-          <div className="flex-container">
-            <Dropdown
-              title="Select Location"
-              list={this.state.locations}
-              onDropdownChange={this.handleChange}
+      <Router>
+        <div className="landing-page">
+          <div className="landing-page__content">
+            <Title />
+            <div className="flex-container">
+              <Dropdown
+                title="Select Location"
+                list={this.state.locations}
+                month={this.state.currentMonth}
+                onDropdownChange={this.handleChange}
+              />
+              <Dropdown
+                title={this.state.months.getMonth()}
+                list={this.state.months.months}
+                location={this.state.currentLocation}
+                onDropdownChange={this.handleChange}
+              />
+            </div>
+
+            <Route
+              path="/:state/:month"
+              exact
+              render={props => {
+                return (
+                  <ProduceResults
+                    // state={this.state.currentLocation}
+                    // month={this.state.currentMonth}
+                    {...props}
+                    onIngredientSelection={this.recipeResultToggle}
+                  />
+                );
+              }}
             />
-            <Dropdown
-              title={this.state.months.getMonth()}
-              list={this.state.months.months}
-              onDropdownChange={this.handleChange}
+
+            <Route
+              path="/:state/:month/:ingredient"
+              exact
+              render={props => {
+                return (
+                  <RecipeResults
+                    {...props}
+                    ingredient={this.state.ingredient}
+                    onIngredientSelection={this.recipeResultToggle}
+                  />
+                );
+              }}
             />
           </div>
-          {this.state.dropdownSelected && !this.state.ingredientSelected && (
-            <ProduceResults
-              state={this.state.currentLocation}
-              month={this.state.currentMonth}
-              onIngredientSelection={this.recipeResultToggle}
-            />
-          )}
-          {this.state.ingredientSelected && (
-            <RecipeResults ingredient={this.state.ingredient} />
-          )}
         </div>
-      </div>
+      </Router>
     );
   }
 }

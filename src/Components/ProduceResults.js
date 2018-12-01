@@ -4,36 +4,50 @@ import axios from "axios";
 import { Scrollbars } from "react-custom-scrollbars";
 
 class ProduceResults extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      error: null,
-      isLoaded: false,
-      produce: []
-    };
-  }
+  state = {
+    isLoading: false,
+    produce: []
+  };
+
+  signal = axios.CancelToken.source();
   componentDidMount() {
-    axios
-      .get(`http://localhost:3000/${this.props.state}`)
-      .then(response => {
-        this.setState({
-          produce: response.data.state[0].month[this.props.month].produce
-        });
-      })
-      .catch(err => console.log(err));
+    this.axiosRequest();
   }
   componentDidUpdate(prevProps) {
     if (this.props !== prevProps) {
-      axios
-        .get(`http://localhost:3000/${this.props.state}`)
-        .then(response => {
-          this.setState({
-            produce: response.data.state[0].month[this.props.month].produce
-          });
-        })
-        .catch(err => console.log(err));
+      this.axiosRequest();
     }
   }
+  componentWillUnmount() {
+    this.signal.cancel("Api is being canceled");
+  }
+
+  axiosRequest = async () => {
+    const state = this.props.match.params.state;
+    const month = this.props.match.params.month;
+    const capitalize = str =>
+      str.replace(/^[a-z]/g, digit => digit.toUpperCase());
+
+    try {
+      this.setState({ isLoading: true });
+      const response = await axios.get(
+        `http://localhost:3000/${capitalize(state)}`,
+        {
+          cancelToken: this.signal.token
+        }
+      );
+      this.setState({
+        produce: response.data.state[0].month[capitalize(month)].produce,
+        isLoading: true
+      });
+    } catch (err) {
+      if (axios.isCancel(err)) {
+        console.log("Error: ", err.message);
+      } else {
+        this.setState({ isLoading: false });
+      }
+    }
+  };
   render() {
     return (
       <Scrollbars

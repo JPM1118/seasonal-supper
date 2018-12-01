@@ -9,8 +9,8 @@ const Modal = props => {
           {props.nutrients.map(nutrient => {
             return (
               <li key={nutrient.label}>
-                <span>{nutrient.label}: </span>
-                <span>{nutrient.quantity}</span>
+                <span className="modal__li-label">{nutrient.label}: </span>
+                <span className="modal__li-quantity">{nutrient.quantity}</span>
               </li>
             );
           })}

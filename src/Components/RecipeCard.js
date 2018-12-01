@@ -78,7 +78,13 @@ class RecipeCard extends Component {
             </div>
           </div>
           <div className="recipeCard__recipeBtn">
-            <button className="btn">Get Recipe</button>
+            <a
+              href={this.state.sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="btn">Get Recipe</button>
+            </a>
           </div>
           {this.state.modalOpen && (
             <Modal

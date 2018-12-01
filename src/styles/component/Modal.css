@@ -21,6 +21,11 @@
 
   ul {
     columns: 2;
+    list-style-type: none;
+    text-align: left;
+  }
+  &__li-label {
+    font-weight: bold;
   }
 
   &__close {

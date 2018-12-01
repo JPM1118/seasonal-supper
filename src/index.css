@@ -55,6 +55,28 @@ body {
   background: #f4f4f4;
 }
 
+.back {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  height: auto;
+  cursor: pointer;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.back:active {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+
+.back__text {
+    position: relative;
+    bottom: 10px;
+    color: #80bd9e;
+    font-weight: bold;
+  }
+
 .App {
   font-family: "Roboto", sans-serif;
   position: absolute;
@@ -288,6 +310,12 @@ body {
 .modal ul {
     -webkit-columns: 2;
             columns: 2;
+    list-style-type: none;
+    text-align: left;
+  }
+
+.modal__li-label {
+    font-weight: bold;
   }
 
 .modal__close {

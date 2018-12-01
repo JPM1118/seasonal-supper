@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import arrowDown from "./../img/arrow-down-icon.svg";
 import arrowUp from "./../img/arrow-up-icon.svg";
+import { withRouter } from "react-router-dom";
 
 class Dropdown extends Component {
   constructor(props) {
@@ -23,6 +24,12 @@ class Dropdown extends Component {
       headerTitle: e
     });
     this.props.onDropdownChange(true, e);
+
+    let url = this.props.month
+      ? `/${e}/${this.props.month}/`
+      : `/${this.props.location}/${e}/`;
+
+    this.props.history.push(url);
   };
 
   render() {
@@ -67,4 +74,4 @@ class Dropdown extends Component {
   }
 }
 
-export default Dropdown;
+export default withRouter(Dropdown);

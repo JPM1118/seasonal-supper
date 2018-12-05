@@ -4,7 +4,7 @@
   background: rgba(0, 0, 0, 0.5);
   position: absolute;
   margin-top: 0;
-  overflow: hidden;
+  /* overflow: auto; */
 
   &:after {
     content: "";

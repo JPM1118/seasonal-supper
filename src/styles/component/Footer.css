@@ -1,7 +1,7 @@
 .footer {
   z-index: 100;
   color: white;
-  position: absolute;
+  position: relative;
   bottom: 0;
   left: 0;
   width: 50%;

@@ -7,6 +7,8 @@ import ProduceResults from "./ProduceResults";
 import RecipeResults from "./RecipeResults";
 import { BrowserRouter as Router } from "react-router-dom";
 import Route from "react-router-dom/Route";
+// import Footer from "./../Components/Footer";
+// import About from "./../Components/About";
 
 class LandingPage extends Component {
   constructor() {
@@ -45,7 +47,7 @@ class LandingPage extends Component {
   render() {
     return (
       <Router>
-        <div className="landing-page">
+        <div className="landing-page ">
           <div className="landing-page__content">
             <Title />
             <div className="flex-container">

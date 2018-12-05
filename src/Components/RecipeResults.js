@@ -75,13 +75,6 @@ class RecipeResults extends Component {
             />
           );
         })}
-        <div
-          className="back"
-          onClick={() => this.props.onIngredientSelection("")}
-        >
-          <img src={arrowLeft} alt="Back Button" />
-          <span className="back__text">BACK</span>
-        </div>
       </Scrollbars>
     );
   }

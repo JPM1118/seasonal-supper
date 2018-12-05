@@ -1,9 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default Title => {
   return (
     <div className="title-block">
-      <h1 className="title-block--title">SEASONAL SUPPER</h1>
+      <Link style={{ textDecoration: "none", color: "white" }} to="/">
+        <h1 className="title-block--title">SEASONAL SUPPER</h1>
+      </Link>
       <h2 className="title-block--subtitle">Recipes for seasonal eating.</h2>
     </div>
   );

@@ -1,14 +1,21 @@
 import React from "react";
 import LandingPage from "./Components/LandingPage";
 import { BrowserRouter as Router } from "react-router-dom";
-import Route from "react-router-dom/Route";
+import { Switch, Route } from "react-router-dom";
+import Footer from "./Components/Footer";
+import About from "./Components/About";
+
 const App = () => {
   return (
-    <div className="App">
-      <Router>
-        <Route path="/" component={LandingPage} />
-      </Router>
-    </div>
+    <Router>
+      <div className="App background">
+        <Switch>
+          <Route path="/about" component={About} />
+          <Route path="/" component={LandingPage} />
+        </Switch>
+        <Footer />
+      </div>
+    </Router>
   );
 };
 

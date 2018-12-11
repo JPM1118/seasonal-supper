@@ -12,7 +12,7 @@ const App = () => {
         <div className='App background'>
           <Switch>
             <Route path='/about' component={About} />
-            <Route path='/' component={LandingPage} />
+            <Route exact path='/' component={LandingPage} />
           </Switch>
           <Footer />
         </div>

@@ -49,20 +49,6 @@ class ProduceResults extends Component {
   };
   render() {
     return (
-      // <Scrollbars
-      //   // style={{ height: "70vh" }}
-      //   renderView={props => {
-      //     return (
-      //       <div
-      //         {...props}
-      //         className="results flex-container"
-      //         style={{
-      //           ...props.style
-      //         }}
-      //       />
-      //     );
-      //   }}
-      // >
       <div className='results flex-container '>
         {this.state.produce.map(produce => {
           return (
@@ -74,7 +60,6 @@ class ProduceResults extends Component {
           );
         })}
       </div>
-      // </Scrollbars>
     );
   }
 }

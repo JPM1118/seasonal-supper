@@ -4,14 +4,10 @@ import arrowUp from './../img/arrow-up-icon.svg';
 import { withRouter } from 'react-router-dom';
 
 class Dropdown extends Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.state = {
-      listOpen: false,
-      headerTitle: this.props.title
-    };
-  }
+  state = {
+    listOpen: false,
+    headerTitle: this.props.title
+  };
 
   toggleList = () => {
     this.setState(prevState => ({
@@ -23,11 +19,11 @@ class Dropdown extends Component {
     this.setState({
       headerTitle: e
     });
-    this.props.onDropdownChange(true, e);
+    this.props.onDropdownChange(e);
 
-    let url = this.props.month
-      ? `/${e}/${this.props.month}/`
-      : `/${this.props.locationState}/${e}/`;
+    let url = this.props.currentMonth
+      ? `/${e}/${this.props.currentMonth}/`
+      : `/${this.props.currentState}/${e}/`;
     this.props.history.push(url);
   };
 

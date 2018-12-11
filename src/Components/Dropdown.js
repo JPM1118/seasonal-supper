@@ -55,10 +55,10 @@ class Dropdown extends Component {
               {list.map(item => (
                 <li
                   className='dropdown__list-item'
-                  key={item.title}
-                  onClick={() => this.handleChange(item.title)}
+                  key={item}
+                  onClick={() => this.handleChange(item)}
                 >
-                  {item.title}
+                  {item}
                 </li>
               ))}
             </ul>

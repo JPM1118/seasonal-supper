@@ -1,29 +1,36 @@
 import React, { Component } from 'react';
+import Route from 'react-router-dom/Route';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 import Title from './Title';
-import locationState from './../data/locationState';
-import monthState from './../data/monthState';
+import stateList from '../data/stateList';
+import monthList from '../data/monthList';
 import Dropdown from './Dropdown';
 import ProduceResults from './ProduceResults';
 import RecipeResults from './RecipeResults';
-import { BrowserRouter as Router } from 'react-router-dom';
-import Route from 'react-router-dom/Route';
+
+const getMonth = () => {
+  const idx = new Date().getMonth();
+  return monthList[idx];
+};
 
 const initialState = {
-  currentMonth: monthState.getMonth(),
+  currentMonth: getMonth(),
   currentLocation: ''
 };
 
 class LandingPage extends Component {
   state = initialState;
   handleChange = title => {
-    let array = monthState.months;
-    array.some(e => e.title === title)
+    let array = monthList;
+    array.some(e => e === title)
       ? this.setState({ currentMonth: title })
       : this.setState({ currentLocation: title });
   };
   clearState = () => {
     this.setState(initialState);
   };
+
   render() {
     return (
       <Router>
@@ -33,13 +40,13 @@ class LandingPage extends Component {
             <div className='flex-container'>
               <Dropdown
                 title='Select Location'
-                list={locationState()}
+                list={stateList}
                 currentMonth={this.state.currentMonth}
                 onDropdownChange={this.handleChange}
               />
               <Dropdown
-                title={monthState.getMonth()}
-                list={monthState.months}
+                title={this.state.currentMonth}
+                list={monthList}
                 currentState={this.state.currentLocation}
                 onDropdownChange={this.handleChange}
               />

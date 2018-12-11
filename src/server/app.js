@@ -7,9 +7,10 @@ const mongoose = require('mongoose');
 const routes = require('./routes/states');
 
 mongoose.connect(
-  'mongodb://JPM_13:' +
-    process.env.MONGO_ATLAS_PW +
-    '@cluster0-shard-00-00-y5hkl.mongodb.net:27017,cluster0-shard-00-01-y5hkl.mongodb.net:27017,cluster0-shard-00-02-y5hkl.mongodb.net:27017/seasonal_produce?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true',
+  // 'mongodb://JPM_13:' +
+  //   process.env.MONGO_ATLAS_PW +
+  //   '@cluster0-shard-00-00-y5hkl.mongodb.net:27017,cluster0-shard-00-01-y5hkl.mongodb.net:27017,cluster0-shard-00-02-y5hkl.mongodb.net:27017/seasonal_produce?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true',
+  'mongodb://JPM_13:rcnN6i7vyDeXeB5@cluster0-shard-00-00-y5hkl.mongodb.net:27017,cluster0-shard-00-01-y5hkl.mongodb.net:27017,cluster0-shard-00-02-y5hkl.mongodb.net:27017/seasonal_produce?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true',
   {
     useNewUrlParser: true
   }

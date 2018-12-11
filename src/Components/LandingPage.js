@@ -16,7 +16,8 @@ const getMonth = () => {
 
 const initialState = {
   currentMonth: getMonth(),
-  currentLocation: ''
+  currentLocation: 'Select Location',
+  unmountResults: false
 };
 
 class LandingPage extends Component {
@@ -24,22 +25,25 @@ class LandingPage extends Component {
   handleChange = title => {
     let array = monthList;
     array.some(e => e === title)
-      ? this.setState({ currentMonth: title })
-      : this.setState({ currentLocation: title });
-  };
-  clearState = () => {
-    this.setState(initialState);
+      ? this.setState({ currentMonth: title, unmountResults: false })
+      : this.setState({ currentLocation: title, unmountResults: false });
   };
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.location.state.homeClicked) {
+      this.setState(initialState);
+      this.setState({ unmountResults: true });
+    }
+  }
   render() {
     return (
       <Router>
         <div className='landing-page '>
           <div className='landing-page__content'>
-            <Title clearState={this.clearState} />
+            <Title />
             <div className='flex-container'>
               <Dropdown
-                title='Select Location'
+                title={this.state.currentLocation}
                 list={stateList}
                 currentMonth={this.state.currentMonth}
                 onDropdownChange={this.handleChange}
@@ -51,14 +55,17 @@ class LandingPage extends Component {
                 onDropdownChange={this.handleChange}
               />
             </div>
+            {this.state.unmountResults ? null : (
+              <React.Fragment>
+                <Route path='/:state/:month' exact component={ProduceResults} />
 
-            <Route path='/:state/:month' exact component={ProduceResults} />
-
-            <Route
-              path='/:state/:month/:ingredient'
-              exact
-              component={RecipeResults}
-            />
+                <Route
+                  path='/:state/:month/:ingredient'
+                  exact
+                  component={RecipeResults}
+                />
+              </React.Fragment>
+            )}
           </div>
         </div>
       </Router>

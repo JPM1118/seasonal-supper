@@ -5,8 +5,7 @@ import { withRouter } from 'react-router-dom';
 
 class Dropdown extends Component {
   state = {
-    listOpen: false,
-    headerTitle: this.props.title
+    listOpen: false
   };
 
   toggleList = () => {
@@ -16,9 +15,6 @@ class Dropdown extends Component {
   };
 
   handleChange = e => {
-    this.setState({
-      headerTitle: e
-    });
     this.props.onDropdownChange(e);
 
     let url = this.props.currentMonth
@@ -29,13 +25,13 @@ class Dropdown extends Component {
 
   render() {
     const { list } = this.props;
-    const { listOpen, headerTitle } = this.state;
+    const { listOpen } = this.state;
 
     return (
       <div className='dropdown'>
         <div className='dropdown__header' onClick={() => this.toggleList()}>
           <div className='dropdown__header-title'>
-            {headerTitle}{' '}
+            {this.props.title}{' '}
             {listOpen ? (
               <img
                 src={arrowUp}
@@ -50,6 +46,7 @@ class Dropdown extends Component {
               />
             )}{' '}
           </div>
+
           {listOpen && (
             <ul className='dropdown__list'>
               {list.map(item => (

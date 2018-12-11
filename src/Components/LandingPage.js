@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Title from "./Title";
-import locationState from "./../Test_Objects/locationState";
-import monthState from "./../Test_Objects/monthState";
+import locationState from "./../data/locationState";
+import monthState from "./../data/monthState";
 import Dropdown from "./Dropdown";
 import ProduceResults from "./ProduceResults";
 import RecipeResults from "./RecipeResults";

@@ -7,7 +7,7 @@
   /* overflow: auto; */
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -15,6 +15,6 @@
     bottom: 0;
     z-index: -1;
     background: url(./img/bg-large.jpg);
-    background-size: cover;
+    background-size: auto auto;
   }
 }

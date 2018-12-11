@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import arrowDown from "./../img/arrow-down-icon.svg";
-import arrowUp from "./../img/arrow-up-icon.svg";
-import { withRouter } from "react-router-dom";
+import React, { Component } from 'react';
+import arrowDown from './../img/arrow-down-icon.svg';
+import arrowUp from './../img/arrow-up-icon.svg';
+import { withRouter } from 'react-router-dom';
 
 class Dropdown extends Component {
   constructor(props) {
@@ -27,8 +27,7 @@ class Dropdown extends Component {
 
     let url = this.props.month
       ? `/${e}/${this.props.month}/`
-      : `/${this.props.location}/${e}/`;
-
+      : `/${this.props.locationState}/${e}/`;
     this.props.history.push(url);
   };
 
@@ -37,29 +36,29 @@ class Dropdown extends Component {
     const { listOpen, headerTitle } = this.state;
 
     return (
-      <div className="dropdown">
-        <div className="dropdown__header" onClick={() => this.toggleList()}>
-          <div className="dropdown__header-title">
-            {headerTitle}{" "}
+      <div className='dropdown'>
+        <div className='dropdown__header' onClick={() => this.toggleList()}>
+          <div className='dropdown__header-title'>
+            {headerTitle}{' '}
             {listOpen ? (
               <img
                 src={arrowUp}
-                alt="arrow up icon"
-                className="dropdown__icon"
+                alt='arrow up icon'
+                className='dropdown__icon'
               />
             ) : (
               <img
                 src={arrowDown}
-                alt="arrow down icon"
-                className="dropdown__icon"
+                alt='arrow down icon'
+                className='dropdown__icon'
               />
-            )}{" "}
+            )}{' '}
           </div>
           {listOpen && (
-            <ul className="dropdown__list">
+            <ul className='dropdown__list'>
               {list.map(item => (
                 <li
-                  className="dropdown__list-item"
+                  className='dropdown__list-item'
                   key={item.title}
                   onClick={() => this.handleChange(item.title)}
                 >

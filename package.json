@@ -5,7 +5,11 @@
   "homepage": "",
   "dependencies": {
     "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
     "marked": "^0.5.1",
+    "mongoose": "^5.3.15",
+    "morgan": "^1.9.1",
     "react": "^16.5.2",
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.5.2",
@@ -16,14 +20,13 @@
   "scripts": {
     "build:css": "postcss src/styles/main.css -o src/index.css",
     "watch:css": "postcss src/styles/main.css -o src/index.css -w",
-    "start": "set PORT=3001 && npm-run-all -p watch:css start-js",
+    "start": "npm-run-all -p watch:css start-js server",
     "start-js": "react-scripts start",
     "build-js": "react-scripts build",
     "build": "npm-run-all build:css build-js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "server": "nodemon src/server/server.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,7 +41,7 @@
     "autoprefixer": "^9.2.0",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "gh-pages": "^2.0.1",
+    "nodemon": "^1.18.8",
     "npm-run-all": "^4.1.3",
     "postcss-cli": "^6.0.0",
     "postcss-import": "^12.0.0",

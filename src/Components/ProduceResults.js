@@ -1,7 +1,6 @@
-import React, { Component } from "react";
-import Card from "./Card";
-import axios from "axios";
-import { Scrollbars } from "react-custom-scrollbars";
+import React, { Component } from 'react';
+import Card from './Card';
+import axios from 'axios';
 
 class ProduceResults extends Component {
   state = {
@@ -19,7 +18,7 @@ class ProduceResults extends Component {
     }
   }
   componentWillUnmount() {
-    this.signal.cancel("Api is being canceled");
+    this.signal.cancel('Api is being canceled');
   }
 
   axiosRequest = async () => {
@@ -31,7 +30,7 @@ class ProduceResults extends Component {
     try {
       this.setState({ isLoading: true });
       const response = await axios.get(
-        `http://localhost:3000/${capitalize(state)}`,
+        `http://localhost:3001/${capitalize(state)}`,
         {
           cancelToken: this.signal.token
         }
@@ -42,7 +41,7 @@ class ProduceResults extends Component {
       });
     } catch (err) {
       if (axios.isCancel(err)) {
-        console.log("Error: ", err.message);
+        console.log('Error: ', err.message);
       } else {
         this.setState({ isLoading: false });
       }
@@ -64,7 +63,7 @@ class ProduceResults extends Component {
       //     );
       //   }}
       // >
-      <div className="results flex-container">
+      <div className='results flex-container '>
         {this.state.produce.map(produce => {
           return (
             <Card

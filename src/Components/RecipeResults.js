@@ -1,8 +1,6 @@
-import React, { Component } from "react";
-import RecipeCard from "./RecipeCard";
-import axios from "axios";
-import { Scrollbars } from "react-custom-scrollbars";
-import arrowLeft from "./../img/arrow-left-icon.svg";
+import React, { Component } from 'react';
+import RecipeCard from './RecipeCard';
+import axios from 'axios';
 
 class RecipeResults extends Component {
   state = {
@@ -19,7 +17,7 @@ class RecipeResults extends Component {
     }
   }
   componentWillUnmount() {
-    this.signal.cancel("Api is being canceled");
+    this.signal.cancel('Api is being canceled');
   }
 
   axiosRequest = async () => {
@@ -41,7 +39,7 @@ class RecipeResults extends Component {
       });
     } catch (err) {
       if (axios.isCancel(err)) {
-        console.log("Error: ", err.message);
+        console.log('Error: ', err.message);
       } else {
         this.setState({ isLoading: false });
       }
@@ -50,20 +48,7 @@ class RecipeResults extends Component {
 
   render() {
     return (
-      <Scrollbars
-        style={{ height: "70vh", position: "relative" }}
-        renderView={props => {
-          return (
-            <div
-              {...props}
-              className="results "
-              style={{
-                ...props.style
-              }}
-            />
-          );
-        }}
-      >
+      <div className='results'>
         {this.state.recipes.map((recipe, index) => {
           return index % 2 === 0 ? (
             <RecipeCard key={recipe.recipe.label} recipe={recipe.recipe} />
@@ -75,7 +60,7 @@ class RecipeResults extends Component {
             />
           );
         })}
-      </Scrollbars>
+      </div>
     );
   }
 }

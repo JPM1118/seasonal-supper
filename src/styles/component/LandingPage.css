@@ -1,13 +1,13 @@
 .landing-page {
+  /* overflow: auto; */
+
   &__content {
-    position: relative;
+    /* position: relative; */
     text-align: center;
-    /* top: 50%; */
-    /* transform: translateY(-50%); */
+    /* height: 90vh; */
     color: white;
-    /* max-width: 1000px; */
     width: 100%;
-    /* height: 70vh; */
     margin: 0 auto;
+    padding-bottom: 50px;
   }
 }

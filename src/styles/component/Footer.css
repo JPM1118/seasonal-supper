@@ -1,9 +1,17 @@
 .footer {
-  z-index: 100;
-  color: white;
-  position: relative;
-  bottom: 0;
-  left: 0;
-  width: 50%;
+  z-index: 0;
+  background-color: white;
+  color: black;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
   padding: 20px 0;
+
+  &__links {
+    div {
+      margin: 0px 10px;
+      font-weight: bold;
+    }
+  }
 }

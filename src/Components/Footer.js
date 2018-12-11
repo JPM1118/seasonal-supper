@@ -1,12 +1,14 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <div className="footer">
-      <div className="flex-container">
-        <div>Home</div>
-        <Link to="/about">
+    <div className='footer'>
+      <div className='flex-container footer__links'>
+        <Link to='/'>
+          <div>Home</div>
+        </Link>
+        <Link to='/about'>
           <div>About</div>
         </Link>
         <div>Contact</div>

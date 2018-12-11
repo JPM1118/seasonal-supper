@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import Title from "./Title";
-import locationState from "./../data/locationState";
-import monthState from "./../data/monthState";
-import Dropdown from "./Dropdown";
-import ProduceResults from "./ProduceResults";
-import RecipeResults from "./RecipeResults";
-import { BrowserRouter as Router } from "react-router-dom";
-import Route from "react-router-dom/Route";
+import React, { Component } from 'react';
+import Title from './Title';
+import locationState from './../data/locationState';
+import monthState from './../data/monthState';
+import Dropdown from './Dropdown';
+import ProduceResults from './ProduceResults';
+import RecipeResults from './RecipeResults';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Route from 'react-router-dom/Route';
 // import Footer from "./../Components/Footer";
 // import About from "./../Components/About";
 
@@ -17,10 +17,10 @@ class LandingPage extends Component {
     this.recipeResultToggle = this.recipeResultToggle.bind(this);
     this.state = {
       locations: locationState(),
-      currentLocation: "",
+      currentLocation: '',
       months: monthState,
       currentMonth: monthState.getMonth(),
-      ingredient: "",
+      ingredient: '',
       dropdownSelected: false,
       ingredientSelected: false
     };
@@ -33,7 +33,7 @@ class LandingPage extends Component {
 
     this.setState({
       dropdownSelected: selected,
-      ingredient: "",
+      ingredient: '',
       ingredientSelected: false
     });
   }
@@ -47,12 +47,12 @@ class LandingPage extends Component {
   render() {
     return (
       <Router>
-        <div className="landing-page ">
-          <div className="landing-page__content">
+        <div className='landing-page '>
+          <div className='landing-page__content'>
             <Title />
-            <div className="flex-container">
+            <div className='flex-container'>
               <Dropdown
-                title="Select Location"
+                title='Select Location'
                 list={this.state.locations}
                 month={this.state.currentMonth}
                 onDropdownChange={this.handleChange}
@@ -60,13 +60,13 @@ class LandingPage extends Component {
               <Dropdown
                 title={this.state.months.getMonth()}
                 list={this.state.months.months}
-                location={this.state.currentLocation}
+                locationState={this.state.currentLocation}
                 onDropdownChange={this.handleChange}
               />
             </div>
 
             <Route
-              path="/:state/:month"
+              path='/:state/:month'
               exact
               render={props => {
                 return (
@@ -81,7 +81,7 @@ class LandingPage extends Component {
             />
 
             <Route
-              path="/:state/:month/:ingredient"
+              path='/:state/:month/:ingredient'
               exact
               render={props => {
                 return (

@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className='footer'>
       <div className='flex-container footer__links'>
-        <Link to={{ pathname: '/', state: { homeClicked: true } }}>
+        <Link to={{ pathname: '/' }}>
           <div>Home</div>
         </Link>
         <Link to='/about'>

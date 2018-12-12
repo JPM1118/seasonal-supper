@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Route from 'react-router-dom/Route';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import Title from './Title';
 import stateList from '../data/stateList';
@@ -14,14 +13,9 @@ const getMonth = () => {
   return monthList[idx];
 };
 
-const initialState = {
-  currentMonth: getMonth(),
-  currentLocation: 'Select Location',
-  unmountResults: false
-};
-
 class LandingPage extends Component {
-  state = initialState;
+  state = { currentMonth: getMonth(), currentLocation: 'Select Location' };
+
   handleChange = title => {
     let array = monthList;
     array.some(e => e === title)
@@ -29,46 +23,54 @@ class LandingPage extends Component {
       : this.setState({ currentLocation: title, unmountResults: false });
   };
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.location.state.homeClicked) {
-      this.setState(initialState);
-      this.setState({ unmountResults: true });
-    }
-  }
+  updateButtonState = (state, month) => {
+    this.setState({
+      currentMonth: month,
+      currentLocation: state
+    });
+  };
+
   render() {
     return (
-      <Router>
-        <div className='landing-page '>
-          <div className='landing-page__content'>
-            <Title />
-            <div className='flex-container'>
-              <Dropdown
-                title={this.state.currentLocation}
-                list={stateList}
-                currentMonth={this.state.currentMonth}
-                onDropdownChange={this.handleChange}
-              />
-              <Dropdown
-                title={this.state.currentMonth}
-                list={monthList}
-                currentState={this.state.currentLocation}
-                onDropdownChange={this.handleChange}
-              />
-            </div>
-            {this.state.unmountResults ? null : (
-              <React.Fragment>
-                <Route path='/:state/:month' exact component={ProduceResults} />
-
-                <Route
-                  path='/:state/:month/:ingredient'
-                  exact
-                  component={RecipeResults}
-                />
-              </React.Fragment>
-            )}
+      <div className='landing-page '>
+        <div className='landing-page__content'>
+          <Title />
+          <div className='flex-container'>
+            <Dropdown
+              title={this.state.currentLocation}
+              list={stateList}
+              currentMonth={this.state.currentMonth}
+              onDropdownChange={this.handleChange}
+            />
+            <Dropdown
+              title={this.state.currentMonth}
+              list={monthList}
+              currentState={this.state.currentLocation}
+              onDropdownChange={this.handleChange}
+            />
           </div>
+          <Switch>
+            <Route
+              path='/:state/:month/:ingredient'
+              render={props => (
+                <RecipeResults
+                  updateButtonState={this.updateButtonState}
+                  {...props}
+                />
+              )}
+            />
+            <Route
+              path='/:state/:month'
+              render={props => (
+                <ProduceResults
+                  updateButtonState={this.updateButtonState}
+                  {...props}
+                />
+              )}
+            />
+          </Switch>
         </div>
-      </Router>
+      </div>
     );
   }
 }

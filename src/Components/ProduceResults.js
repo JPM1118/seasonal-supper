@@ -10,6 +10,10 @@ class ProduceResults extends Component {
 
   signal = axios.CancelToken.source();
   componentDidMount() {
+    this.props.updateButtonState(
+      this.props.match.params.state,
+      this.props.match.params.month
+    );
     this.axiosRequest();
   }
   componentDidUpdate(prevProps) {

@@ -7,14 +7,15 @@ import monthList from '../data/monthList';
 import Dropdown from './Dropdown';
 import ProduceResults from './ProduceResults';
 import RecipeResults from './RecipeResults';
+import About from './About';
 
 const getMonth = () => {
   const idx = new Date().getMonth();
   return monthList[idx];
 };
-
+const initialState = { currentMonth: getMonth(), currentLocation: 'Select Location' };
 class LandingPage extends Component {
-  state = { currentMonth: getMonth(), currentLocation: 'Select Location' };
+  state = initialState
 
   handleChange = title => {
     let array = monthList;
@@ -31,6 +32,17 @@ class LandingPage extends Component {
   };
 
   render() {
+    let renderAbout = false;
+    if (this.props.location.pathname === '/') {
+      // this.setState(prevState => {
+      //   if (prevState !== state) {
+      //     return { state = initialState }
+      //   }
+      // }
+      // )
+      this.state = initialState
+      renderAbout = true
+    }
     return (
       <div className='landing-page '>
         <div className='landing-page__content'>
@@ -49,6 +61,7 @@ class LandingPage extends Component {
               onDropdownChange={this.handleChange}
             />
           </div>
+          {renderAbout ? <About /> : null}
           <Switch>
             <Route
               path='/:state/:month/:ingredient'

@@ -49,17 +49,10 @@ body {
             transform: scale(1.2);
   }
 
-.background {
-  width: 100%;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  margin-top: 0;
-}
+/* .background {
+    background: rgba(0,0,0, 0.5);
 
-/* overflow: auto; */
-
-.background:after {
+  &:after {
     content: '';
     position: absolute;
     top: 0;
@@ -68,24 +61,60 @@ body {
     bottom: 0;
     z-index: -1;
     background: url(./img/bg-large.jpg);
-    background-size: auto auto;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+  }
+} */
+
+.wrapper{
+  /* background-color: white; */
+  position: relative;
+  /* background: #f4f4f4; */
+  /* z-index: -3; */
+}
+
+.background {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -3;
+}
+
+.background__img{
+    height: 30vh;
+    background: -webkit-linear-gradient( rgba(0,0,0,0.5), rgba(0, 0, 0, 0.5) ),url(./img/bg-large.jpg);
+    background: linear-gradient( rgba(0,0,0,0.5), rgba(0, 0, 0, 0.5) ),url(./img/bg-large.jpg);
+    background-size: cover;
+   
+  }
+
+.background__color{
+    height: 70vh;
+    background: #EEEEEE;
   }
 
 .App {
   font-family: 'Roboto', sans-serif;
-  position: relative;
+  position: absolute;
+  /* z-index: 1; */
   width: 100%;
+  /* max-width: 1800px; */
   min-height: 100vh;
   height: 100%;
   /* top: 0px; */
   overflow: auto;
+  margin: 0 auto;
 }
 
-/* overflow: auto; */
+.landing-page {
+  /* overflow: auto; */
+    position: relative;
+    z-index: 0;
+}
 
 .landing-page__content {
-    /* position: relative; */
     text-align: center;
+    /* z-index: 1; */
     /* height: 90vh; */
     color: white;
     width: 100%;
@@ -322,8 +351,7 @@ body {
 
 .footer {
   z-index: 0;
-  background-color: white;
-  color: black;
+  /* background-color: white; */
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -334,18 +362,39 @@ body {
 .footer__links div {
       margin: 0px 10px;
       font-weight: bold;
+      text-decoration: none;
     }
+
+.footer__links a {
+      text-decoration: none;
+      color: black;
+    }
+
+.footer__links a:hover{
+      color: #80bd9e;  
+
+      }
 
 .about {
   background: white;
   max-width: 800px;
   width: 100%;
-  margin: 300px auto;
+  margin: 100px auto;
   padding: 40px;
   border-radius: 5px;
+  color: black;
+  text-align: left;
 }
 
-.about__title {
-    text-align: center;
-    margin-bottom: 30px;
+.about__body{
+    font-size: 1.5rem;
+    font-weight: 500;
   }
+
+.about__body ul{
+      list-style-type: none;
+    }
+
+.about__body li{
+      margin: 20px;
+    }

@@ -3,7 +3,9 @@
 @import './global/btn.css';
 @import './global/mixins.css';
 @import './global/background.css';
+@import './global/wrapper.css';
 
+@import './component/Background.css';
 @import './component/App.css';
 @import './component/LandingPage.css';
 @import './component/Title.css';

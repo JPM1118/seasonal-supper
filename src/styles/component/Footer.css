@@ -1,7 +1,6 @@
 .footer {
   z-index: 0;
-  background-color: white;
-  color: black;
+  /* background-color: white; */
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -12,6 +11,15 @@
     div {
       margin: 0px 10px;
       font-weight: bold;
+      text-decoration: none;
+    }
+    a {
+      text-decoration: none;
+      color: black;
+      &:hover{
+      color: #80bd9e;  
+
+      }
     }
   }
 }

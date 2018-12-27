@@ -7,6 +7,7 @@
   left: 0;
   z-index: 10;
 
+
   &__main {
     position: relative;
     background: white;
@@ -17,12 +18,22 @@
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 5px;
+    overflow: auto;
   }
 
   ul {
-    columns: 2;
+    columns: 1;
     list-style-type: none;
     text-align: left;
+    padding-inline-start: 0px;
+
+    
+    @mixin atMedium {
+      columns: 2;
+      list-style-type: none;
+      text-align: left;
+      padding-inline-start: 40px;
+    }
   }
   &__li-label {
     font-weight: bold;

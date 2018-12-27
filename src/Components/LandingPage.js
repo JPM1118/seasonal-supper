@@ -30,17 +30,20 @@ class LandingPage extends Component {
       currentLocation: state
     });
   };
+  componentDidUpdate(prevProps) {
+    if (
+      prevProps.location.pathname !== this.props.location.pathname
+      && this.props.location.pathname === '/'
+    ) {
+
+      this.setState(initialState)
+    }
+
+  }
 
   render() {
     let renderAbout = false;
     if (this.props.location.pathname === '/') {
-      // this.setState(prevState => {
-      //   if (prevState !== state) {
-      //     return { state = initialState }
-      //   }
-      // }
-      // )
-      this.state = initialState
       renderAbout = true
     }
     return (

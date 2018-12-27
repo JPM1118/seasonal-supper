@@ -1,12 +1,9 @@
 .App {
   font-family: 'Roboto', sans-serif;
-  position: absolute;
-  /* z-index: 1; */
+  position: relative;
   width: 100%;
-  /* max-width: 1800px; */
   min-height: 100vh;
   height: 100%;
-  /* top: 0px; */
   overflow: auto;
   margin: 0 auto;
 }

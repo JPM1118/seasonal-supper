@@ -1,23 +1,37 @@
+
+
 .about {
   background: white;
   max-width: 800px;
   width: 100%;
-  margin: 100px auto;
-  padding: 40px;
+  margin: 10px auto;
+  padding: 10px 0;
   border-radius: 5px;
   color: black;
   text-align: left;
 
-
+  @mixin atMedium{
+    padding: 40px;
+    margin: 100px auto;
+  }
 
   &__body{
     font-size: 1.5rem;
     font-weight: 500;
-    ul{
+    ol{
       list-style-type: none;
+      counter-reset: list-numbers;
     }
-    li{
+    ol li{
+      counter-increment: list-numbers;
       margin: 20px;
+      font-size: 1.2rem;      
+    }
+    ol li::before{
+      content: "0" counter(list-numbers);
+      margin: 20px;
+      font-size: 3rem;
+      color: $green;      
     }
   }
 }

@@ -1,0 +1,43 @@
+.contact{
+  background: white;
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 5px;
+  overflow: auto;
+  @mixin atMedium {
+    margin-top: 150px;
+    padding: 20px;
+  }
+
+  form{
+    overflow: auto;
+  }
+
+  h1{
+    text-align: center;
+  }
+  label,input,textarea{
+    display: block;
+    width: 90%;
+    margin-top: 15px;
+  }
+  label{
+    color: grey;
+    font-weight: 500;
+    font-size: 1.2rem;
+  }
+  textarea{
+    height: 150px;
+  }
+  input,textarea{
+    padding: 5px;
+    margin-left: 5px;
+  }
+  button{
+    margin: 15px auto 0 auto;
+    width: 100px;
+    display: block;
+  }
+}

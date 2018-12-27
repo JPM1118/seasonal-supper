@@ -1,4 +1,5 @@
 .title-block {
+  text-align: center;
   &--title {
     font-size: 2rem;
     font-weight: 900;
@@ -13,6 +14,7 @@
     font-size: 1rem;
     font-weight: 900;
     margin-top: 0;
+    color: white;
 
     @mixin atMedium {
       font-size: 1.5rem;

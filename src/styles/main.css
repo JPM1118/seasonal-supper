@@ -1,4 +1,5 @@
 @import './global/body.css';
+@import './global/variables.css';
 @import './global/flex-container.css';
 @import './global/btn.css';
 @import './global/mixins.css';
@@ -16,3 +17,4 @@
 @import './component/Modal.css';
 @import './component/Footer.css';
 @import './component/About.css';
+@import './component/Contact.css';

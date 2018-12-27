@@ -31,7 +31,7 @@ class RecipeResults extends Component {
     try {
       this.setState({ isLoading: true });
       const response = await axios.get(
-        `https://api.edamam.com/search?q=${ingredient}&app_id=35bb7eda&app_key=
+        `https://api.edamam.com/search?q=${ingredient}&from=0&to=100&app_id=35bb7eda&app_key=
       1065fb968544846b8684b96f365faceb&`,
         {
           cancelToken: this.signal.token
@@ -55,14 +55,14 @@ class RecipeResults extends Component {
       <div className='results'>
         {this.state.recipes.map((recipe, index) => {
           return index % 2 === 0 ? (
-            <RecipeCard key={recipe.recipe.label} recipe={recipe.recipe} />
+            <RecipeCard key={index} recipe={recipe.recipe} />
           ) : (
-            <RecipeCard
-              background={true}
-              key={recipe.recipe.label}
-              recipe={recipe.recipe}
-            />
-          );
+              <RecipeCard
+                background={true}
+                key={index}
+                recipe={recipe.recipe}
+              />
+            );
         })}
       </div>
     );

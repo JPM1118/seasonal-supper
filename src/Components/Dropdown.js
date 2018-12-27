@@ -39,12 +39,12 @@ class Dropdown extends Component {
                 className='dropdown__icon'
               />
             ) : (
-              <img
-                src={arrowDown}
-                alt='arrow down icon'
-                className='dropdown__icon'
-              />
-            )}{' '}
+                <img
+                  src={arrowDown}
+                  alt='arrow down icon'
+                  className='dropdown__icon'
+                />
+              )}{' '}
           </div>
 
           {listOpen && (
@@ -61,6 +61,7 @@ class Dropdown extends Component {
             </ul>
           )}
         </div>
+
       </div>
     );
   }

@@ -23,4 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 nodemon.json
+/.vscode
+secrets.json
 

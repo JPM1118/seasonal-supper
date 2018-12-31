@@ -12,6 +12,6 @@
   }
   &__color{
     height: 70vh;
-    background: #EEEEEE;
+    background:$grey;
   }
 }

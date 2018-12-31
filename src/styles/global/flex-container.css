@@ -6,4 +6,8 @@
   &--justify-start {
     justify-content: flex-start;
   }
+
+  &--center{
+    align-items: center;
+  }
 }

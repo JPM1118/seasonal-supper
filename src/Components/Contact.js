@@ -49,29 +49,31 @@ class Contact extends Component {
       <>
         <Title />
         <div className="contact">
-          {this.state.successSubmit ?
-            <div className="contact__success-message">
-              <h2>Thank You!</h2>
-              <p>Your message has been sent and I will respond as soon as possible.</p>
-            </div>
-            : <form onSubmit={this.handleSubmit}>
-              <h1>Contact Me</h1>
-              <div className="contact__subject">
-                <label>Subject</label>
-                <input type="text" name="subject" value={this.state.subject} onChange={this.handleChange} />
+          <div className="contact__main">
+            {this.state.successSubmit ?
+              <div className="contact__success-message">
+                <h2>Thank You!</h2>
+                <p>Your message has been sent and I will respond as soon as possible.</p>
               </div>
-              <div className="contact__message">
-                <label>Message</label>
-                <textarea name="message" value={this.state.message} onChange={this.handleChange} />
-              </div>
-              <div className="contact__email">
-                <label>Your Email Address</label>
-                <input type="email" name="email" value={this.state.email} onChange={this.handleChange} />
-              </div>
-              <button className="btn" disabled={this.enableButton()}>Submit</button>
+              : <form onSubmit={this.handleSubmit}>
+                <h1>Contact Me</h1>
+                <div className="contact__subject">
+                  <label>Subject</label>
+                  <input type="text" name="subject" value={this.state.subject} onChange={this.handleChange} />
+                </div>
+                <div className="contact__message">
+                  <label>Message</label>
+                  <textarea name="message" value={this.state.message} onChange={this.handleChange} />
+                </div>
+                <div className="contact__email">
+                  <label>Your Email Address</label>
+                  <input type="email" name="email" value={this.state.email} onChange={this.handleChange} />
+                </div>
+                <button className="btn" disabled={this.enableButton()}>Submit</button>
 
-            </form>
-          }
+              </form>
+            }
+          </div>
         </div>
       </>
     )

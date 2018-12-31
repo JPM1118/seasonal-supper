@@ -15,11 +15,13 @@ const App = () => {
       </div>
       <Router>
         <div className='App'>
-          <Switch>
-            <Route exact path='/contact' component={Contact} />
-            <Route exact path='/about' component={About} />
-            <Route path='/' component={LandingPage} />
-          </Switch>
+          <div className="wrapper">
+            <Switch>
+              <Route exact path='/contact' component={Contact} />
+              <Route exact path='/about' component={About} />
+              <Route path='/' component={LandingPage} />
+            </Switch>
+          </div>
           <Footer />
         </div>
       </Router>

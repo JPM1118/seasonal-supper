@@ -1,4 +1,10 @@
 .contact{
+  /* min-height: 90vh; */
+  /* height: 90%; */
+  background: $grey;
+  /* margin-bottom: 10px; */
+  padding-bottom: 50px;
+  &__main{
   background: white;
   position: relative;
   width: 100%;
@@ -39,5 +45,6 @@
     margin: 15px auto 0 auto;
     width: 100px;
     display: block;
+  }
   }
 }

@@ -1,6 +1,8 @@
 .wrapper{
   /* background-color: white; */
-  position: relative;
+  /* position: relative; */
   /* background: #f4f4f4; */
   /* z-index: -3; */
+  min-height: 100vh;
+  /* min-height: calc(100vh - 20px); */
 }

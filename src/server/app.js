@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const path = require('path')
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -18,9 +19,11 @@ mongoose.connect(
 
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
+db.once('open', function () {
   console.log('connected');
 });
+
+app.use(express.static(path.join(__dirname, 'build')))
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -55,5 +58,9 @@ app.use((error, req, res, next) => {
     }
   });
 });
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + 'build/index.html'))
+})
 
 module.exports = app;

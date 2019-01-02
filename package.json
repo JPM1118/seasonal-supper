@@ -50,5 +50,6 @@
     "postcss-mixins": "^6.2.0",
     "postcss-nested": "^4.1.0",
     "postcss-simple-vars": "^5.0.1"
-  }
+  },
+  "proxy": "http://localhost:8080/"
 }

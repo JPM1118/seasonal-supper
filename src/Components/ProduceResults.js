@@ -34,7 +34,8 @@ class ProduceResults extends Component {
     try {
       this.setState({ isLoading: true });
       const response = await axios.get(
-        `http://localhost:3001/${capitalize(state)}`,
+        // `http://localhost:3001/${capitalize(state)}`,
+        `/${capitalize(state)}`,
         {
           cancelToken: this.signal.token
         }

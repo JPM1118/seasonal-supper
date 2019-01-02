@@ -23,7 +23,7 @@ db.once('open', function () {
   console.log('connected');
 });
 
-app.use(express.static(path.join(__dirname, 'build')))
+app.use(express.static(path.join(__dirname, '../..', 'build')))
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));

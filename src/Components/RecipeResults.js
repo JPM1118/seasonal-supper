@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import RecipeCard from './RecipeCard';
 import axios from 'axios';
+require('dotenv').config();
 
 class RecipeResults extends Component {
   state = {
@@ -31,8 +32,8 @@ class RecipeResults extends Component {
     try {
       this.setState({ isLoading: true });
       const response = await axios.get(
-        `https://api.edamam.com/search?q=${ingredient}&from=0&to=100&app_id=35bb7eda&app_key=
-      1065fb968544846b8684b96f365faceb&`,
+        `https://api.edamam.com/search?q=${ingredient}&from=0&to=100&app_id=${process.env.ED_ID}&app_key=
+      ${process.env.ED_KEY}`,
         {
           cancelToken: this.signal.token
         }
